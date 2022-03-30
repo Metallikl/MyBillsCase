@@ -2,4 +2,6 @@
     <string name="app_name">MyBillsCase</string>
     <string name="entries_list_label">Lançamentos</string>
     <string name="entry_detatil_label">Detalhes do Lançamento</string>
+    <string name="entries_list_erro_on_call_api">Erro ao buscar</string>
+    <string name="entries_list_reload_lbl">Recarregar</string>
 </resources>

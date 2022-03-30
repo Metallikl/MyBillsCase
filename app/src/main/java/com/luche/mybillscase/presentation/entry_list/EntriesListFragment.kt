@@ -1,20 +1,20 @@
 package com.luche.mybillscase.presentation.entry_list
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
 import com.google.android.material.snackbar.Snackbar
+import com.luche.mybillscase.R
 import com.luche.mybillscase.ResultStatus
 import com.luche.mybillscase.databinding.EntriesListFragmentBinding
 import com.luche.mybillscase.model.domain.Entry
 import com.luche.mybillscase.viewmodel.EntriesListViewModel
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EntriesListFragment : Fragment() {
@@ -22,7 +22,9 @@ class EntriesListFragment : Fragment() {
     private val binding get() = _binding!!
     private val mViewModel: EntriesListViewModel by viewModel()
     private val entriesAdapter: EntriesAdapter by lazy {
-        EntriesAdapter()
+        EntriesAdapter(
+            ::onEntryClick
+        )
     }
 
     override fun onCreateView(
@@ -56,6 +58,14 @@ class EntriesListFragment : Fragment() {
         }
     }
 
+    private fun onEntryClick(entry: Entry){
+        //Usa classe criada pelo safeArgs para gera destino ja passando argumento
+        val actionEntriesListToEntryDetail =
+            EntriesListFragmentDirections.actionEntriesListToEntryDetail(entry)
+            //EntriesListFragmentDirections.actionEntriesListToEntryDetail()
+        findNavController().navigate(actionEntriesListToEntryDetail)
+    }
+
     private fun initObserver() {
         mViewModel.resultStatusLiveData.observe(viewLifecycleOwner) { result ->
             when (result) {
@@ -76,10 +86,10 @@ class EntriesListFragment : Fragment() {
     private fun handleStatusError() {
        Snackbar.make(
            binding.root,
-           "Erro ao buscar",
+           getString(R.string.entries_list_erro_on_call_api),
            LENGTH_INDEFINITE
        )
-       .setAction("Recarregar"){
+       .setAction(getString(R.string.entries_list_reload_lbl)){
            mViewModel.tryAgain()
        }.show()
     }

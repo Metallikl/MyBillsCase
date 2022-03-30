@@ -21,7 +21,11 @@
         android:name="com.luche.mybillscase.presentation.entry_detail.EntryDetailFragment"
         android:label="@string/entry_detatil_label"
         tools:layout="@layout/entry_detail_fragment"
-        />
+        >
+        <argument
+            android:name="selectedEntry"
+            app:argType="com.luche.mybillscase.model.domain.Entry" />
+    </fragment>
 
 
 </navigation>

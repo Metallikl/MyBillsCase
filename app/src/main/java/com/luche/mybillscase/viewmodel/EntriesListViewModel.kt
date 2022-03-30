@@ -12,8 +12,6 @@ import kotlinx.coroutines.launch
 class EntriesListViewModel(
     private val getEntriesListUseCaseImpl: GetEntriesListUseCase
 ) : ViewModel() {
-    private var _entriesLiveData = MutableLiveData<List<Entry>>()
-    val entriesLiveData : LiveData<List<Entry>> = _entriesLiveData
     private var _resultStatusLiveData = MutableLiveData<ResultStatus<List<Entry>>>().apply {
         value = ResultStatus.Loading
     }

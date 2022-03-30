@@ -1,5 +1,6 @@
 package com.luche.mybillscase.model.domain
 
+import java.io.Serializable
 import java.math.BigDecimal
 
 data class Entry(
@@ -8,4 +9,4 @@ data class Entry(
     val origin: String,
     val category: Int,
     val entryMonth: Int
-)
+) : Serializable

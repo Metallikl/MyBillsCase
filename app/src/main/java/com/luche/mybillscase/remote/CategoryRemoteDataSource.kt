@@ -1,5 +1,7 @@
 package com.luche.mybillscase.remote
 
-interface CategoryRemoteDataSource<T> {
-    fun fetchCategories() : T
+import com.luche.mybillscase.model.network.CategoryResponse
+
+interface CategoryRemoteDataSource {
+   suspend fun fetchCategories() : List<CategoryResponse>
 }

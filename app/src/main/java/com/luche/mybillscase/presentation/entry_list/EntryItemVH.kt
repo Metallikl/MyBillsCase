@@ -13,11 +13,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class EntryItemVH(
-    private val binding: EntryItemBinding
+    private val binding: EntryItemBinding,
+    private val onEntryClick: (entry: Entry) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(entry: Entry){
         with(binding){
+            root.setOnClickListener {
+                onEntryClick(entry)
+            }
             ivEntryIcon.apply {
                 setImageDrawable(
                     ContextCompat.getDrawable
@@ -44,13 +48,14 @@ class EntryItemVH(
     }
 
     companion object{
-        fun create(parent: ViewGroup) =
+        fun create(parent: ViewGroup, onEntryClick: (entry: Entry) -> Unit) =
             EntryItemVH(
                 EntryItemBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
-                )
+                ),
+                onEntryClick
             )
     }
 }
