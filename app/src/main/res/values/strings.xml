@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyBillsCase</string>
+    <string name="entries_list_label">Lançamentos</string>
+    <string name="entry_detatil_label">Detalhes do Lançamento</string>
+</resources>

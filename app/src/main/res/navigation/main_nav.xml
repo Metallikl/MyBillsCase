@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/entriesListFragment">
+
+    <fragment
+        android:id="@+id/entriesListFragment"
+        android:name="com.luche.mybillscase.presentation.entry_list.EntriesListFragment"
+        android:label="@string/entries_list_label"
+        tools:layout="@layout/entries_list_fragment"
+        >
+        <action
+            android:id="@+id/action_entriesList_to_entryDetail"
+            app:destination="@id/entryDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/entryDetailFragment"
+        android:name="com.luche.mybillscase.presentation.entry_detail.EntryDetailFragment"
+        android:label="@string/entry_detatil_label"
+        tools:layout="@layout/entry_detail_fragment"
+        />
+
+
+</navigation>
