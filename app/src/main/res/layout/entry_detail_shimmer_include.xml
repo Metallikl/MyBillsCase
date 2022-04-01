@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/shimmerEntryDetail"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    app:cardUseCompatPadding="true"
-    tools:context=".presentation.entry_detail.EntryDetailFragment">
+    android:layout_height="match_parent"
+    app:shimmer_repeat_mode="restart"
+    app:shimmer_shape="linear">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clInfos"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/ivIconCategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_directions_car_24"
+            android:background="@color/shimmer_gray"
             app:layout_constraintBottom_toTopOf="@id/gdBottomIcon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_min="100dp"
@@ -39,44 +39,47 @@
 
         <TextView
             android:id="@+id/tvCategoryDesc"
+            android:text="Categoria"
+            android:textColor="@color/shimmer_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@color/shimmer_gray"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/gdBottomIcon"
-            tools:text="Categoria" />
+
+            />
 
         <TextView
             android:id="@+id/tvOrigin"
+            android:text="UBER"
+            android:textColor="@color/shimmer_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:background="@color/shimmer_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCategoryDesc"
-            tools:text="UBER" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCategoryDesc" />
 
         <TextView
             android:id="@+id/tvValue"
+            android:text="R$ 450,00"
+            android:textColor="@color/shimmer_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/shimmer_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvOrigin"
-            tools:text="R$ 450,00" />
+            app:layout_constraintTop_toBottomOf="@+id/tvOrigin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include
-        android:id="@+id/entry_detail_shimmer_include"
-        layout="@layout/entry_detail_shimmer_include"/>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>

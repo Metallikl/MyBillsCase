@@ -26,7 +26,7 @@
             android:layout_width="@android:dimen/app_icon_size"
             android:layout_height="@android:dimen/app_icon_size"
             android:layout_marginStart="16dp"
-            android:background="@color/material_dynamic_neutral80"
+            android:background="@color/shimmer_gray"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/gdStart"
@@ -44,7 +44,7 @@
             app:layout_constraintStart_toEndOf="@+id/ivEntryIcon"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="R$ 48,00"
-            android:background="@color/material_dynamic_neutral80"/>
+            android:background="@color/shimmer_gray"/>
 
         <TextView
             android:id="@+id/tvEntryDesc"
@@ -58,7 +58,7 @@
             app:layout_constraintStart_toEndOf="@+id/ivEntryIcon"
             app:layout_constraintTop_toBottomOf="@+id/tvEntryValue"
             tools:text="MacZin"
-            android:background="@color/material_dynamic_neutral80"/>
+            android:background="@color/shimmer_gray"/>
 
         <TextView
             android:id="@+id/tvEntryDate"
@@ -70,8 +70,9 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivEntryIcon"
-            tools:text="12/03"
-            android:background="@color/material_dynamic_neutral80"/>
+            android:text="Janeiro"
+            android:textColor="@color/shimmer_gray"
+            android:background="@color/shimmer_gray"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
